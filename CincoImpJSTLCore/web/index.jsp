@@ -5,6 +5,9 @@
  </head>
  <body>
      <myprefix:Split word="teste-caroo" delimiter="-"/>
+     <myprefix:Split word="teste-carro*" delimiter="*"/>
+     <myprefix:Split word="teste-carro*" delimiter="*-"/>
+     <myprefix:Split word="teste-carro*" delimiter="-*"/>
      
  </body>
 </html>

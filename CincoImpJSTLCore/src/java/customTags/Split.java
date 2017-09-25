@@ -35,19 +35,32 @@ public class Split extends SimpleTagSupport {
 
     public void setDelimiter(String delimiter) {
         this.delimiter = delimiter;
-    }
+    }    
     
-    private boolean isDelimiter(char param) {
-        boolean found = false;
-        int index = 0;
-        while (index != delimiter.length()) {
-            if (delimiter.charAt(index) == param) {
-                found = true;
-                break;
-            }                
-            index++;            
+    private int getDelimiterIndex(int begin) {
+        int index = -1, count = 0;
+        
+        if (begin < 0) {
+            // Jogar exception...
+            return -1;
+        }
+        
+        while (count < delimiter.length()) {
+            int found;
+            found = word.indexOf(delimiter.charAt(count), begin);
+            if (found != -1) {
+                if (index != -1) {
+                    // Valida índice encontrado para mais de um delimitador!
+                    if (found < index) {
+                        index = found;
+                    }
+                } else {
+                    index = found;
+                }
+            }
+            count++;
         }        
-        return found;
+        return index;
     }
     
     public String [] split() {
@@ -62,22 +75,21 @@ public class Split extends SimpleTagSupport {
             return strings;
         }
         List<String> substrings = new ArrayList<>();
-        String string = new String();
         
-        int index = 0;
-        while (index != word.length()) {
-            char caracter = word.charAt(index);
-            if (isDelimiter(caracter)) {
-                substrings.add(string);
-                string = "";
-            } else {
-                string += caracter;
-            }            
-            index++;
+        int index = 0, begin = 0;
+        while (index != -1) {
+            index = getDelimiterIndex(index);
+            
+            if (index != -1) {
+                substrings.add(word.substring(begin, index));
+                index++;
+                begin = index;                
+            }
         }
-        if (string.length() > 0) {
-            substrings.add(string);
+        if (begin < (word.length() - 1)) {
+            substrings.add(word.substring(begin));
         }        
+        
         strings = substrings.toArray(new String[0]);
         return strings;
     }
@@ -107,6 +119,10 @@ public class Split extends SimpleTagSupport {
             // e.g.:
             //
             // out.println("    </blockquote>");
+            
+            out.println("Palavra=" + word + "<P>");
+            out.println("Delimitador=" + delimiter + "<P>");
+            
             String [] subStrings = split();
             for (String string : subStrings) {
                 out.println(string + "<P>");
