@@ -37,12 +37,11 @@ public class Split extends SimpleTagSupport {
         this.delimiter = delimiter;
     }    
     
-    private int getDelimiterIndex(int begin) {
+    private int getDelimiterIndex(int begin) throws IndexOutOfBoundsException {
         int index = -1, count = 0;
         
         if (begin < 0) {
-            // Jogar exception...
-            return -1;
+            throw new IndexOutOfBoundsException();
         }
         
         while (count < delimiter.length()) {
@@ -63,16 +62,14 @@ public class Split extends SimpleTagSupport {
         return index;
     }
     
-    public String [] split() {
-        String [] strings = null;
+    public String [] split() throws NullPointerException {
+        
         if (word == null) {
-            // Jogar exception...
-            return strings;
+            throw new NullPointerException();
         }
         
         if (delimiter == null) {
-            // Jogar exception...
-            return strings;
+            throw new NullPointerException();
         }
         List<String> substrings = new ArrayList<>();
         
@@ -90,6 +87,7 @@ public class Split extends SimpleTagSupport {
             substrings.add(word.substring(begin));
         }        
         
+        String [] strings;
         strings = substrings.toArray(new String[0]);
         return strings;
     }
@@ -98,6 +96,7 @@ public class Split extends SimpleTagSupport {
      * Called by the container to invoke this tag. The implementation of this
      * method is provided by the tag library developer, and handles all tag
      * processing, body iteration, etc.
+     * @throws javax.servlet.jsp.JspException
      */
     @Override
     public void doTag() throws JspException {
@@ -127,9 +126,10 @@ public class Split extends SimpleTagSupport {
             for (String string : subStrings) {
                 out.println(string + "<P>");
             }
-        } catch (java.io.IOException ex) {
+        } catch (java.io.IOException | IndexOutOfBoundsException | NullPointerException ex) {
             throw new JspException("Error in Split tag", ex);
         }
+        
     }
     
 }
