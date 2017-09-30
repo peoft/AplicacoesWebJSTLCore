@@ -122,8 +122,8 @@ public class Split extends SimpleTagSupport {
             out.println("Palavra=" + word + "<P>");
             out.println("Delimitador=" + delimiter + "<P>");
             
-            String [] subStrings = split();
-            for (String string : subStrings) {
+            String [] substrings = split();
+            for (String string : substrings) {
                 out.println(string + "<P>");
             }
         } catch (java.io.IOException | IndexOutOfBoundsException | NullPointerException ex) {

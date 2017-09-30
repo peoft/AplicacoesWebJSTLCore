@@ -15,6 +15,7 @@
      <myprefix:IndexOf sentence="teste do xml com indice" search=""/>
      <myprefix:IndexOf sentence="teste do xml com indice" search="teste do xml com indicexml"/>
      <myprefix:IndexOf sentence="teste do xml com indice" search="indices"/>
+     <myprefix:Substring word="teste do xml com indice" begin="1" end="4"/>
      
  </body>
 </html>

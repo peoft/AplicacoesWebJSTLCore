@@ -40,6 +40,21 @@
     <name>Substring</name>
     <tag-class>customTags.Substring</tag-class>
     <body-content>empty</body-content>
+    <attribute>
+      <name>word</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>begin</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>end</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
   </tag>
   <tag>
     <name>Contains</name>
