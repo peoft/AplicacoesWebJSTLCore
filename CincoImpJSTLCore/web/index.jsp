@@ -8,6 +8,13 @@
      <myprefix:Split word="teste-carro*" delimiter="*"/>
      <myprefix:Split word="teste-carro*" delimiter="*-"/>
      <myprefix:Split word="teste-carro*" delimiter="-*"/>
+     <myprefix:IndexOf sentence="teste do xml com indice" search="teste do xml com indice"/>
+     <myprefix:IndexOf sentence="teste do xml com indice" search="xml"/>
+     <myprefix:IndexOf sentence="teste do xml com indice" search="indice"/>
+     <myprefix:IndexOf sentence="teste do xml com indice" search="ice"/>
+     <myprefix:IndexOf sentence="teste do xml com indice" search=""/>
+     <myprefix:IndexOf sentence="teste do xml com indice" search="teste do xml com indicexml"/>
+     <myprefix:IndexOf sentence="teste do xml com indice" search="indices"/>
      
  </body>
 </html>

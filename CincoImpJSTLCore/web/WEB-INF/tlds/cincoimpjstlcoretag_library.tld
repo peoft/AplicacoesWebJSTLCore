@@ -20,4 +20,35 @@
       <rtexprvalue>no</rtexprvalue>
     </attribute>
   </tag>
+  <tag>
+    <name>IndexOf</name>
+    <tag-class>customTags.IndexOf</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>sentence</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>search</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
+    
+  </tag>
+  <tag>
+    <name>Substring</name>
+    <tag-class>customTags.Substring</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <name>Contains</name>
+    <tag-class>customTags.Contains</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <name>Foreach</name>
+    <tag-class>customTags.Foreach</tag-class>
+    <body-content>empty</body-content>
+  </tag>
 </taglib>

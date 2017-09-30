@@ -25,7 +25,11 @@ public class Split extends SimpleTagSupport {
         return word;
     }
 
-    public void setWord(String word) {
+    public void setWord(String word) throws NullPointerException {
+        if (word == null) {
+            throw new NullPointerException();
+        }
+        
         this.word = word;
     }
 
@@ -33,7 +37,11 @@ public class Split extends SimpleTagSupport {
         return delimiter;
     }
 
-    public void setDelimiter(String delimiter) {
+    public void setDelimiter(String delimiter) throws NullPointerException {
+        if (delimiter == null) {
+            throw new NullPointerException();
+        }
+        
         this.delimiter = delimiter;
     }    
     
@@ -62,15 +70,7 @@ public class Split extends SimpleTagSupport {
         return index;
     }
     
-    public String [] split() throws NullPointerException {
-        
-        if (word == null) {
-            throw new NullPointerException();
-        }
-        
-        if (delimiter == null) {
-            throw new NullPointerException();
-        }
+    public String [] split()  {
         List<String> substrings = new ArrayList<>();
         
         int index = 0, begin = 0;
