@@ -10,7 +10,7 @@
     <tag-class>customTags.Split</tag-class>
     <body-content>empty</body-content>
     <attribute>
-      <name>word</name>
+      <name>sentence</name>
       <required>no</required>
       <rtexprvalue>no</rtexprvalue>
     </attribute>
@@ -60,6 +60,16 @@
     <name>Contains</name>
     <tag-class>customTags.Contains</tag-class>
     <body-content>empty</body-content>
+    <attribute>
+      <name>sentence</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>word</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>    
   </tag>
   <tag>
     <name>Foreach</name>

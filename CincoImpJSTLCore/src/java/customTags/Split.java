@@ -18,19 +18,19 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
  */
 public class Split extends SimpleTagSupport {
 
-    private String word;
+    private String sentence;
     private String delimiter;
 
     public String getWord() {
-        return word;
+        return sentence;
     }
 
-    public void setWord(String word) throws NullPointerException {
-        if (word == null) {
+    public void setSentence(String sentence) throws NullPointerException {
+        if (sentence == null) {
             throw new NullPointerException();
         }
         
-        this.word = word;
+        this.sentence = sentence;
     }
 
     public String getDelimiter() {
@@ -54,7 +54,7 @@ public class Split extends SimpleTagSupport {
         
         while (count < delimiter.length()) {
             int found;
-            found = word.indexOf(delimiter.charAt(count), begin);
+            found = sentence.indexOf(delimiter.charAt(count), begin);
             if (found != -1) {
                 if (index != -1) {
                     // Valida índice encontrado para mais de um delimitador!
@@ -78,13 +78,13 @@ public class Split extends SimpleTagSupport {
             index = getDelimiterIndex(index);
             
             if (index != -1) {
-                substrings.add(word.substring(begin, index));
+                substrings.add(sentence.substring(begin, index));
                 index++;
                 begin = index;                
             }
         }
-        if (begin < (word.length() - 1)) {
-            substrings.add(word.substring(begin));
+        if (begin < (sentence.length() - 1)) {
+            substrings.add(sentence.substring(begin));
         }        
         
         String [] strings;
@@ -119,7 +119,7 @@ public class Split extends SimpleTagSupport {
             //
             // out.println("    </blockquote>");
             
-            out.println("Palavra=" + word + "<P>");
+            out.println("Palavra=" + sentence + "<P>");
             out.println("Delimitador=" + delimiter + "<P>");
             
             String [] substrings = split();
