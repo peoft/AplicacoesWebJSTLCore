@@ -34,7 +34,6 @@
       <required>no</required>
       <rtexprvalue>no</rtexprvalue>
     </attribute>
-    
   </tag>
   <tag>
     <name>Substring</name>
@@ -69,11 +68,16 @@
       <name>word</name>
       <required>no</required>
       <rtexprvalue>no</rtexprvalue>
-    </attribute>    
+    </attribute>
   </tag>
   <tag>
-    <name>Foreach</name>
-    <tag-class>customTags.Foreach</tag-class>
-    <body-content>empty</body-content>
+    <name>Trim</name>
+    <tag-class>customTags.Trim</tag-class>
+    <body-content>scriptless</body-content>
+    <attribute>
+      <name>sentence</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
   </tag>
 </taglib>
