@@ -32,43 +32,36 @@ public class Trim extends SimpleTagSupport {
     private void removeBeginWhiteSpaces() {
         if (sentence.length() > 0) {
             char caracter = ' ';
-            String trimmed = sentence;
 
-            caracter = trimmed.charAt(0);
+            caracter = sentence.charAt(0);
             while (caracter == ' ') {
-                if (trimmed.length() > 1) {
-                    trimmed = trimmed.substring(1);
+                if (sentence.length() > 1) {
+                    sentence = sentence.substring(1);
                 } else {
-                    trimmed = "";
+                    sentence = "";
                     break;
                 }
-                caracter = trimmed.charAt(0);
+                caracter = sentence.charAt(0);
             }
-            sentence = trimmed;
         }
     }
 
     private void removeEndWhiteSpaces() {
         if (sentence.length() > 0) {
             char caracter = ' ';
-            String trimmed = sentence;
             
-            caracter = trimmed.charAt(trimmed.length()-1);
+            caracter = sentence.charAt(sentence.length()-1);
             while (caracter == ' ') {                
-                trimmed = trimmed.substring(0,trimmed.length()-1);
-                caracter = trimmed.charAt(trimmed.length()-1);
+                sentence = sentence.substring(0,sentence.length()-1);
+                caracter = sentence.charAt(sentence.length()-1);
             }
-            sentence = trimmed;
         }
     }
 
     public String trim() {
-        String trimmed = null;
-
         removeBeginWhiteSpaces();
         removeEndWhiteSpaces();
-        trimmed = sentence;
-        return trimmed;
+        return sentence;
     }
 
     /**
@@ -92,7 +85,9 @@ public class Trim extends SimpleTagSupport {
                 f.invoke(out);
             }
             
-            out.println("Resultado do trim =" + trim() + "!");
+            
+            out.println("Palavra =" + sentence + "!<P>");
+            out.println("Resultado do trim =" + trim() + "!<P>");
 
             // TODO: insert code to write html after writing the body content.
             // e.g.:
