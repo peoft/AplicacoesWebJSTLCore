@@ -4,20 +4,80 @@
 <taglib>
   <tlib-version>1.0</tlib-version>
   <jsp-version>2.0</jsp-version>
-  <short-name>Split Custom Tag</short-name>
+  <short-name>Custom Tag</short-name>
+  <tag>
+    <name>Contains</name>
+    <tag-class>customTags.Contains</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>sentence</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>word</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+  </tag>  
   <tag>
     <name>Split</name>
     <tag-class>customTags.Split</tag-class>
     <body-content>empty</body-content>
     <attribute>
-      <name>word</name>
-      <required>no</required>
-      <rtexprvalue>no</rtexprvalue>
+      <name>sentence</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
     </attribute>
     <attribute>
       <name>delimiter</name>
-      <required>no</required>
-      <rtexprvalue>no</rtexprvalue>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <name>IndexOf</name>
+    <tag-class>customTags.IndexOf</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>sentence</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>search</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <name>Substring</name>
+    <tag-class>customTags.Substring</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>word</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>begin</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>end</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <name>Trim</name>
+    <tag-class>customTags.Trim</tag-class>
+    <body-content>scriptless</body-content>
+    <attribute>
+      <name>sentence</name>
+      <required>yes</required>
+      <rtexprvalue>yes</rtexprvalue>
     </attribute>
   </tag>
 </taglib>

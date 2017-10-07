@@ -5,6 +5,7 @@
  */
 package customTags;
 
+import java.io.IOException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.JspFragment;
@@ -24,12 +25,10 @@ public class Substring extends SimpleTagSupport {
         return word;
     }
 
-    public void setWord(String word) throws NullPointerException, InvalidValue {
+    public void setWord(String word) throws NullPointerException {
         if (word == null) {
             throw new NullPointerException();
         }
-        if (word.length() <= 0)
-            throw new InvalidValue();
         this.word = word;
     }
 
@@ -102,7 +101,12 @@ public class Substring extends SimpleTagSupport {
             out.println("Fim=" + end + "<P>");
             out.println("Substring=" + substring + "<P>");
         } catch (java.io.IOException | InvalidValue ex) {
-            throw new JspException("Error in Substring tag", ex);
+            try {
+                out.println("Palavra pesquisada: " + word + "!" + "<P>");
+                out.println("Verifique os valores dos índices de inicio (" + begin + ") e fim (" + end + ") !" + "<P>" + "Log da exceção:" + ex + "<P>");
+            } catch (IOException ioEx) {
+                throw new JspException("Error in Split tag", ioEx);
+            }
         }
     }
     
